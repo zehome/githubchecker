@@ -18,11 +18,11 @@ func main() {
 
 	flag.BoolVar(&quiet, "quiet", false, "just prints the latest version to use")
 	flag.StringVar(&sconstraint, "match", "", `version matching (eg. >=3.6.0,<3.7)`)
-	flag.StringVar(&sver, "version", "", `current version (eg. 3.6.0)`)
+	flag.StringVar(&sver, "version", "0.0.0", `current version (eg. 3.6.0)`)
 	flag.StringVar(&owner, "owner", "python", "github owner (eg. python)")
 	flag.StringVar(&repository, "repository", "cpython", "github repository (eg. cpython)")
 	flag.Parse()
-	if len(sver) == 0 || len(owner) == 0 || len(repository) == 0 {
+	if len(owner) == 0 || len(repository) == 0 {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
